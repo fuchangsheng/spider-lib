@@ -1,0 +1,28 @@
+{
+  "name": "spider-lib",
+  "version": "1.0.0",
+  "description": "universal spider lib",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuchangsheng/spider-lib.git"
+  },
+  "keywords": [
+    "spider"
+  ],
+  "author": "changsheng fu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fuchangsheng/spider-lib/issues"
+  },
+  "homepage": "https://github.com/fuchangsheng/spider-lib#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "debug": "^2.6.0",
+    "iconv-lite": "^0.4.15",
+    "request": "^2.79.0"
+  }
+}
