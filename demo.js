@@ -80,7 +80,7 @@ var storeObj = function(obj) {
 		info += k + ' : ' + obj[k] + '\n';
 	}
 	info += '\n';
-	debug(info);
+	debug(obj.name);
 	fs.appendFile(__dirname + '/data/result.txt', info, function(err) {
 		if (err) {
 			debug(err);
@@ -97,7 +97,7 @@ var getProcessor = function() {
 	});
 };
 
-var pool = getPool(1, 20);
+var pool = getPool(1, 150);
 
 debug(pool.taskCount());
 
@@ -105,10 +105,9 @@ var processor = getProcessor();
 var excutor = new Excutor({
 	pool: pool,
 	processor: processor,
-	curNum: 1,
+	curNum: 12,
 	timeout: 20000,
 	encoding: 'gbk'
 });
 
-debug('ready');
-excutor.excute(100);
+excutor.excute(3000);
