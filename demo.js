@@ -77,11 +77,12 @@ var storeList = function(tasks) {
 var storeObj = function(obj) {
 	var info = '';
 	for (var k in obj) {
-		info += k + ' : ' + obj[k] + '\n';
+		info += ',' + obj[k];
 	}
 	info += '\n';
+	info = info.substr(1,info.length);
 	debug(obj.name);
-	fs.appendFile(__dirname + '/data/result.txt', info, function(err) {
+	fs.appendFile(__dirname + '/data/result.csv', info, function(err) {
 		if (err) {
 			debug(err);
 		}
@@ -97,7 +98,12 @@ var getProcessor = function() {
 	});
 };
 
-var pool = getPool(1, 150);
+var final = function(msg){
+	debug('callback in demo');
+	debug(msg);
+};
+
+var pool = getPool(1, 158);
 
 debug(pool.taskCount());
 
@@ -105,9 +111,10 @@ var processor = getProcessor();
 var excutor = new Excutor({
 	pool: pool,
 	processor: processor,
-	curNum: 12,
+	curNum: 10,
 	timeout: 20000,
-	encoding: 'gbk'
+	encoding: 'gbk',
+	proxy:true
 });
 
-excutor.excute(3000);
+excutor.excute(100,final);

@@ -1,4 +1,4 @@
 run:demo.js
 	node demo.js
 clean:
-	del .\data\result.txt .\data\tasks.txt
+	del .\data\result.csv .\data\tasks.txt
